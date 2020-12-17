@@ -97,27 +97,29 @@ a {
   text-decoration: none;
 }
 
-header>* {
+/* header>* {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
 
 header .header {
 
   height: 75vh;
+  background-position: 35%;
+  /* background: url("..media/Gentse-feesten-01.jpg") center center / cover no-repeat; */
   /* background-image: url("../media/smart_phone.jpg"); */
-  background-size: cover;
+  /* background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 
 @media(min-width: 80rem) {
   header .header {
     height: 90vh;
-    background-size: cover;
+    /* background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
   }
 }
 

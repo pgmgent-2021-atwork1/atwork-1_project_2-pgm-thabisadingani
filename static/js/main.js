@@ -140,7 +140,8 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
     },
     randomBackgroundPic(){
       var chosenPic = Math.floor((Math.random() * 9) + 1);
-      this.$header.style.background = `url(static/media/Gentse-feesten-0${chosenPic}.jpg)`;
+      this.$header.style.background = `url("static/media/Gentse-feesten-0${chosenPic}.jpg") 35% center / cover no-repeat`;
+      // this.$header.style.background = `url(static/media/Gentse-feesten-0${chosenPic}.jpg)`;
       // console.log(chosenPic)
       //this is not working! 
     },
