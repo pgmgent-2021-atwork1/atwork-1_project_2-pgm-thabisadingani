@@ -18,8 +18,8 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
       this.$btnCloseMenu = document.querySelector('.btn__closing--menu'); 
       this.$program__side = document.querySelector('.program__side'); 
       this.$program__dates = document.querySelector('.program__side--dates'); 
-      this.$artist__list= document.querySelector('.artist__list'); 
-      this.$left__dates = document.querySelector('.left__dates li')
+      this.$artist__list = document.querySelector('.artist__list'); 
+      this.$left__dates = document.querySelectorAll('.left__dates a')
       this.$header = document.querySelector('.header');
       this.$artist__day = document.querySelector('.artist__day');
       // this.$navigation__main__side = document.querySelector('.navigation__main--side li');
@@ -68,10 +68,12 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
       .then((json)=>{
         this.events = json;
         this.gentseFeestenEventBuildUI();
-        this.getQuaryParameter()
+        this.getQuaryParameter();
       })
-      .catch((e)=> console.log(e));
-
+      .then()
+      .catch((e)=> {
+        console.log(e);
+      });
     },
     getDataFromGentseFeestenCategoryApiEndpoint(){
       fetch(GENTSE_FEESTEN_CATEGORIES) 
@@ -111,25 +113,26 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
 			return day;
 		},
     gentseFeestenEventBuildUI(){
-      this.$artist__list.innerHTML = this.events.slice(0, 3).map((artist) => {
-        return `
-        <div class="card">
-              <div class="card__img" >
-                <img src="${artist.image.thumb}" alt="">
-              </div>
-              <div class="day--info">
-                <div class="artist__day--info">
-                  <h4 > ${this.getDayOfPerfomance(artist.day)} ${artist.day} Jul ${artist.start} U.</h4>
+      if(this.$artist__list) {
+        this.$artist__list.innerHTML = this.events.slice(0, 3).map((artist) => {
+          return `
+          <div class="card">
+                <div class="card__img" >
+                  <img src="${artist.image !== null ? artist.image.thumb : ''}" alt="">
                 </div>
-                <div class="card-body">
-                  <h3 class="card__title">${artist.title}</h3>
-                  <p>${artist.location}</p>
+                <div class="day--info">
+                  <div class="artist__day--info">
+                    <h4 > ${this.getDayOfPerfomance(artist.day)} ${artist.day} Jul ${artist.start} u.</h4>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card__title">${artist.title}</h3>
+                    <p>${artist.location}</p>
+                  </div>
                 </div>
-              </div>
-        </div>
-        `;
-    }).join('');
-
+          </div>
+          `;
+        }).join('');
+      } 
     },
     toggleActiveStateMenu(element){
       for (const index of this.$navigation__main__side) {
@@ -141,62 +144,49 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
     randomBackgroundPic(){
       var chosenPic = Math.floor((Math.random() * 9) + 1);
       this.$header.style.background = `url("static/media/Gentse-feesten-0${chosenPic}.jpg") 35% center / cover no-repeat`;
-      // this.$header.style.background = `url(static/media/Gentse-feesten-0${chosenPic}.jpg)`;
-      // console.log(chosenPic)
-      //this is not working! 
     },
     getQuaryParameter(){
-      
+      console.log('start query');
       const search = window.location.search;
       const params = new URLSearchParams(search);
       const urlDay = params.get('day');
      
       if (urlDay !== null){
         let selected__day = '';
-
         selected__day = this.events.filter((dt) => dt.day === urlDay);
         console.log(selected__day);
-      //   this.$artist__day.innerHTML = selected__day.slice(0, 3).map((day) => {
-      //     return `
-      //     <div class="card">
-      //           <div class="card__img" >
-      //             <img src="${day.image.thumb}" alt="">
-      //           </div>
-      //           <div class="day--info">
-      //             <div class="artist__day--info">
-      //               <h4>${day.start} U.</h4>
-      //             </div>
-      //             <div class="card-body">
-      //               <h3 class="card__title">${day.title}</h3>
-      //               <p>${day.location}</p>
-      //             </div>
-      //           </div>
-      //     </div>
-      //     `;
-      // }).join('');
+        this.$artist__day.innerHTML = selected__day.slice(0, 3).map((day) => {
+          let noImg = "static/media/default.jpg";
+          return `
+          <div class="card">
+                <div class="card__img" >
+                  <img src="${day.image !== null ? day.image.thumb : noImg}" alt="">
+                </div>
+                <div class="day--info">
+                  <div class="artist__day--info">
+                    <h4>${day.start} u.</h4>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card__title">${day.title}</h3>
+                    <p>${day.location}</p>
+                  </div>
+                </div>
+          </div>
+          `;
+      }).join('');
         // if (urlDay === this.$artist__list){
 
-        // }
-        // this.$left__dates.forEach(element => {
-          
-        //   element.classList.add("active");
-        //   console.log(element)
-        //   //this is not working
-        //    });
-        
-        // console.log(selected__day);
-
-
-        // this.$product__details = document.querySelector('.product__details');
-        // console.log(this.$product__details.innerHTML);
-
-        // let tempStr = `<div class="bouquet__info"><img src ="${selected__item.image}"><h1>Boeket ${selected__item.type}</h1><h5>${selected__item.prijs}</h5></div>`;
-        // console.log(tempStr);
-
-        // this.$product__details.innerHTML = tempStr;
+        // } 
+        // you have to use for or for of, foreach doesn't work on node-list
+        for (const iterator of this.$left__dates) {
+          if (iterator.getAttribute("data-att") === urlDay){
+            iterator.classList.add("active");
+          } 
+         
+          console.log(iterator)
+        }
 
       }
-      
     }
     
 	};

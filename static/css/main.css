@@ -59,16 +59,16 @@ body {
 
 .l-width {
   margin: 0 auto;
-  width: 90rem;
+  width: 100%;
   padding: 1rem;
-  max-width: 100%;
+  max-width: 90rem;
 
 }
 
 .l-width--second {
   margin: 0 auto;
-  width: 90rem;
-  max-width: 100%;
+  width: 100%;
+  max-width: 90rem;
   position: relative;
 }
 
@@ -107,11 +107,6 @@ header .header {
 
   height: 75vh;
   background-position: 35%;
-  /* background: url("..media/Gentse-feesten-01.jpg") center center / cover no-repeat; */
-  /* background-image: url("../media/smart_phone.jpg"); */
-  /* background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center; */
 }
 
 @media(min-width: 80rem) {
@@ -141,13 +136,13 @@ header .header {
   transform: translateX(100%);
   transition: 0.2s ease-in-out;
   opacity: 0;
-  width: 40rem;
+  /* width: 40rem; */
   position: absolute;
   top: 0rem;
   right: 0rem;
   visibility: visible;
   padding: 2rem;
-  max-width: 100%;
+  max-width: 40rem;
   display: flex;
   flex-direction: column;
   align-items: space-between;
@@ -156,6 +151,9 @@ header .header {
   z-index: 1000;
 }
 
+div.header__hero {
+  padding-top: 1rem;
+}
 
 ul.navigation__links {
   padding: 10%
@@ -321,7 +319,7 @@ ul.navigation__main a:hover,
   align-items: center;
   width: 25rem;
   background-color: transparent;
-  padding-right: 1.5rem;
+  /* padding-right: 1.5rem; */
 }
 
 .search__bar>input {
@@ -335,7 +333,7 @@ ul.navigation__main a:hover,
 }
 
 .search__bar button {
-  width: 3rem;
+  width: 4rem;
   padding: 0.7rem;
   background-color: transparent;
   outline: none;
@@ -345,7 +343,7 @@ ul.navigation__main a:hover,
 
 .search__bar button svg {
   fill: #fff;
-  width: 100%;
+  width: 1.5rem;
 }
 
 .search__bar button:hover {
@@ -698,6 +696,10 @@ ul.header__bottom--dates section .main__events {
   margin-bottom: 1rem;
 }
 
+.artist__day .artist__day--info h4 {
+  width: 6rem;
+}
+
 div.day--info p {
   padding-top: 1rem;
 }
@@ -984,8 +986,8 @@ article.twitter__article {
 
 .newsletter {
   margin: 0 auto;
-  width: 60rem;
-  max-width: 100%;
+  width: 100%;
+  max-width: 60rem;
 }
 
 .newsletter__info p {
@@ -1237,10 +1239,8 @@ article.footer__bottom {
   }
 }
 
-ul.active {
-
+ul.left__dates .active {
   color: #000;
   background-color: #fff;
   border: 1px solid #fff;
-
 }
