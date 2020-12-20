@@ -26,8 +26,8 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
       this.$display__list = document.querySelector('.display__list');
       this.$display__raster = document.querySelector('.display__raster');
       this.$middle__section = document.querySelector('.middle__section');
-      console.log(this.$display__list);
-      console.log(this.$display__raster);
+      // console.log(this.$display__list);
+      // console.log(this.$display__raster);
 		},
 		buildUI() {
       console.log('3. Build the user interface');
@@ -202,10 +202,9 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
               </li> 
           `;
       }).join('');
-        // if (urlDay === this.$artist__list){
+      
 
-        // } 
-        // you have to use for or for of, foreach doesn't work on node-list
+     
         for (const iterator of this.$left__dates) {
           if (iterator.getAttribute("data-att") === urlDay){
             iterator.classList.add("active");

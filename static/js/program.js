@@ -81,7 +81,7 @@ const GENTSE_FEEST_EVENTS_DAY  = 'https://www.pgm.gent/data/gentsefeesten/events
           if (iterator.getAttribute("data-att") === url){
             iterator.classList.add("active");
           } 
-          // console.log(iterator)
+          
         };
         const viewCategories = this.categories.map((category) =>{
         const filterEvents = this.events.filter((event) => {

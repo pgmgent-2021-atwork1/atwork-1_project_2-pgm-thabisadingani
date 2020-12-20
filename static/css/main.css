@@ -317,9 +317,24 @@ ul.navigation__main a.active__menu {
   margin: 0.3rem;
 }
 
+
 .hamburger .burger__line2 {
   width: 1.5rem;
   transform: translateX(0.5rem);
+}
+
+.hamburger button {
+  background-color: transparent;
+  border: none;
+  padding: 0.5em 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.hamburger button:active {
+  outline: red 3px dotted;
+  border: none;
 }
 
 @media(min-width: 80rem) {
@@ -901,6 +916,7 @@ article.main__news--first {
   }
 
   article.main__news--first {
+    margin-top: 1rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
     gap: 3rem;
@@ -1404,6 +1420,12 @@ ul li.detail__topList--inner img {
   margin-top: 1rem;
 }
 
+li.detail__topList--inner a {
+  text-decoration: underline;
+  font-size: 1.06rem;
+  color: #000;
+}
+
 .main__detail--img {
   grid-area: one;
 }
@@ -1541,6 +1563,11 @@ a.list__toggle--inner {
   transition: 1s;
   padding: 1rem;
   background-color: #000;
+}
+
+h3.card__title {
+  font-size: 1.5rem;
+  line-height: 1.5;
 }
 
 a.list__toggle--inner:hover {

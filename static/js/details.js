@@ -88,23 +88,23 @@ const GENTSE_FEEST_EVENTS_DETAILS = 'https://www.pgm.gent/data/gentsefeesten/eve
                   <ul class="detail__topList">
                     <li class="detail__topList--inner">
                       <p class="detail__strong">Website:</p>
-                      <a href="${event.url}">${event.url !== null ? event.url  : '-'}</a>
+                      <a href="${event.url}">${event.url !== null ? event.url  : ' '}</a>
                     </li>
                     <li class="detail__topList--inner">
-                    <p class="detail__strong" >Organisator:</p>
-                    <p>${event.organizer !== null ? event.organizer  : ''}</p>
+                      <p class="detail__strong" >Organisator:</p>
+                      <a href ="#">${event.organizer !== null ? event.organizer  : ''}</a>
                     </li>
                     <li class="detail__topList--inner">
-                    <p class="detail__strong" >Categorieën:</p>
-                    <p>${event.category}</p>
+                      <p class="detail__strong" >Categorieën:</p>
+                      <a href="#"><p>${event.category}</p></a>
                     </li>
                     <li class="detail__topList--inner">
-                    <p class="detail__strong">Leeftijd:</p>
-                    <a>0-100</a>
-                  </li>
+                      <p class="detail__strong">Leeftijd:</p>
+                      <p>0-100</p>
+                   </li>
                     <li class="detail__topList--inner">
                       <p class="detail__strong">Prijs:</p>
-                      <a>€1,00</a>
+                      <p>€1,00</p>
                     </li>
                     <li>
                       <img src="${event.wheelchair_accessible !== false ? wheelchair :''}">
