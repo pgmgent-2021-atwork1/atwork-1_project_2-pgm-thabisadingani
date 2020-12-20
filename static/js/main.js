@@ -197,7 +197,7 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
                     <h3 class="card__title">${day.title}</h3>
                     <p>${day.location}</p>
                   </div>
-                </div> // console.log(iterator)
+                </div>
                </a>
               </li> 
           `;
