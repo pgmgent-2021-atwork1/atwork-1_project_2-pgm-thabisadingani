@@ -22,13 +22,27 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
       this.$left__dates = document.querySelectorAll('.left__dates a')
       this.$header = document.querySelector('.header');
       this.$artist__day = document.querySelector('.artist__day');
-      // this.$navigation__main__side = document.querySelector('.navigation__main--side li');
+      this.$navigation__main__side = document.querySelectorAll('.navigation__main a');
+      this.$display__list = document.querySelector('.display__list');
+      this.$display__raster = document.querySelector('.display__raster');
+      this.$middle__section = document.querySelector('.middle__section');
+      console.log(this.$display__list);
+      console.log(this.$display__raster);
 		},
 		buildUI() {
       console.log('3. Build the user interface');
      
 		},
 		registerHTMLForListeners() {
+      if(this.$display__list) { 
+        this.$display__list.addEventListener('click', () =>{
+          this.toggleProgramView();
+        });
+        this.$display__raster.addEventListener('click', () =>{
+          this.toggleProgramView();
+        });
+      };
+     
       window.addEventListener('load', (event) => {
         this.randomBackgroundPic();
     });
@@ -43,11 +57,11 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
       this.$program__side.addEventListener('click', () =>{
         this.showProgramSide();
       });
-      // for (const iterator of this.$navigation__main__side) {
-      //   iterator.addEventListener('click',() =>{
-      //     console.log('i dont work')
-      //   })
-      // }
+      for (const iterator of this.$navigation__main__side) {
+        iterator.addEventListener('click',() =>{
+          this.toggleActiveStateMenu(iterator) 
+        })
+      }
     },
     showProgramSide(){
       if(this.$program__dates.classList.contains('fold')){
@@ -80,10 +94,15 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
       .then((response)=> response.json())
       .then((json)=>{
         this.categories = json;
-        
+        this.getDataFromGentseFeestenEventsApiEndpoint()
       })
       .catch((e)=> console.log(e));
 
+    },
+    toggleProgramView(){
+      this.$display__list.classList.toggle('active__button');
+      this.$display__raster.classList.toggle('active__button');
+      this.$middle__section.classList.toggle('list')
     },
     getDayOfPerfomance(eventDay) {
 			let day = eventDay;
@@ -114,9 +133,12 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
 		},
     gentseFeestenEventBuildUI(){
       if(this.$artist__list) {
+        
         this.$artist__list.innerHTML = this.events.slice(0, 3).map((artist) => {
-          return `
-          <div class="card">
+         
+           return `
+            <li>
+              <a href="detail.html?day=${artist.day}&slug=${artist.slug}">
                 <div class="card__img" >
                   <img src="${artist.image !== null ? artist.image.thumb : ''}" alt="">
                 </div>
@@ -129,16 +151,20 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
                     <p>${artist.location}</p>
                   </div>
                 </div>
-          </div>
-          `;
+              </a>
+            </li> `
+          ;
+          
         }).join('');
-      } 
+        
+      }
+      
     },
     toggleActiveStateMenu(element){
       for (const index of this.$navigation__main__side) {
-        index.classList.remove("active");
+        index.classList.remove("active__menu");
     } 
-      element.classList.add("active");
+      element.classList.add("active__menu");
       //this is not working
     },
     randomBackgroundPic(){
@@ -156,11 +182,12 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
         selected__day = this.events.filter((dt) => dt.day === urlDay);
         console.log(selected__day);
         this.$artist__day.innerHTML = selected__day.slice(0, 3).map((day) => {
-          let noImg = "static/media/default.jpg";
+          let placeHolder = "static/media/default.jpg";
           return `
-          <div class="card">
+            <li>
+              <a href="detail.html?day=${day.day}&slug=${day.slug}">
                 <div class="card__img" >
-                  <img src="${day.image !== null ? day.image.thumb : noImg}" alt="">
+                  <img src="${day.image !== null ? day.image.thumb : placeHolder}" alt="">
                 </div>
                 <div class="day--info">
                   <div class="artist__day--info">
@@ -170,8 +197,9 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
                     <h3 class="card__title">${day.title}</h3>
                     <p>${day.location}</p>
                   </div>
-                </div>
-          </div>
+                </div> // console.log(iterator)
+               </a>
+              </li> 
           `;
       }).join('');
         // if (urlDay === this.$artist__list){
@@ -183,12 +211,11 @@ const GENTSE_FEESTEN_EVENTS = 'https://www.pgm.gent/data/gentsefeesten/events_50
             iterator.classList.add("active");
           } 
          
-          console.log(iterator)
+         
         }
 
       }
-    }
-    
+    }  
 	};
 	app.initialize();
 })();

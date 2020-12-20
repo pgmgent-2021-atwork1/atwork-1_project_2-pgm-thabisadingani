@@ -8,8 +8,8 @@
 </head>
 <body>
 	<div class="wrapper">
-	<header>
-		<div class="header height__control">
+	<header class="">
+		<div class="header">
 			<div class="l-width">
 					<div class="header__hero ">
 						<div class="top_nav ">
@@ -18,34 +18,33 @@
 							</div>
 							<div class="top__wrapper">
 							<div class="top__bar">
-								<div class=" top__header">
-									<form action="#">
-										<div class="search__bar">
-											<input type="text" placeholder="Doorzoek het programma...">
-											<button type="submit">
-												<svg viewBox="0 0 18 18"  xmlns="http://www.w3.org/2000/svg">
+								<form action="#">
+									<div class=" top__header">
+											<div class="search__bar">
+												<input type="text" placeholder="Doorzoek het programma...">
+												<button type="submit">
+													<svg viewBox="0 0 18 18"  xmlns="http://www.w3.org/2000/svg">
 													<path d="M6.85875 13.7175C3.07725 13.7175 0 10.641 0 6.85875C0 3.0765 3.07725 0 6.85875 0C10.6403 0 13.7175 3.07725 13.7175 6.85875C13.7175 10.6403 10.641 13.7175 6.85875 13.7175ZM6.85875 2.34225C4.368 2.34225 2.34225 4.36875 2.34225 6.85875C2.34225 9.34875 4.36875 11.3752 6.85875 11.3752C9.34875 11.3752 11.376 9.34875 11.376 6.85875C11.376 4.36875 9.3495 2.34225 6.85875 2.34225ZM13.806 11.6745C13.1933 12.5565 12.417 13.3155 11.5215 13.9103L15.6105 18L17.871 15.7402L13.806 11.6745Z" />
-												</svg>
-											</button>
-										</div>
-										</form>
-									</form>
-								</div>
-								<div class="language__selector">
-									<select class="language-choice">
-										<option value="nl" selected="selected">NL</option>
-										<option value="en">EN</option>
-										<option value="fr">FR</option>
-									</select>
-								</div>
+													</svg>
+												</button>
+											</div>	
+									</div>
+									<div class="language__selector">
+										<select class="language-choice">
+											<option value="nl" selected="selected">NL</option>
+											<option value="en">EN</option>
+											<option value="fr">FR</option>
+										</select>
+									</div>
+								</form>	
 							</div>
 							
 							<div class="navigation">
 								<ul class="navigation__main navigation__main--side">
-									<li> <a class="getActive" href="index.html"> Home</a></li>
-									<li> <a class="getActive" href="">Programma</a></li>
-									<li> <a class="getActive" href="">Nieuws</a></li>
-									<li> <a class="getActive" href="">Info</a></li>
+									<li> <a class="active__menu" href="index.html"> Home</a></li>
+									<li> <a href="dag.html?day=19">Programma</a></li>
+									<li> <a href="">Nieuws</a></li>
+									<li> <a href="">Info</a></li>
 								</ul>
 								<div class="hamburger">
 									<div class=" line burger__line1"></div>
@@ -59,7 +58,8 @@
 							<button class="btn__closing--menu">X</button>
 							<ul class="navigation__links navigation__main--side">
 								<li> <a href="#"> Home</a></li>
-								<li class="program__side"> <a href="#">Programma<span>^</span></a>
+								<li class="program__side"> <a href="#">Programma<span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612"><path d="M604.501 134.782c-9.999-10.05-26.222-10.05-36.221 0L306.014 422.558 43.721 134.782c-9.999-10.05-26.223-10.05-36.222 0s-9.999 26.35 0 36.399l279.103 306.241c5.331 5.357 12.422 7.652 19.386 7.296 6.988.356 14.055-1.939 19.386-7.296l279.128-306.268c9.998-10.048 9.998-26.322-.001-36.372z"/></svg></span></a>
 									<ul class="program__side--dates">
 										<li class=" perform_day day-19"><a href="dag.html?day=19"><span>Vridag</span><span>19 juli</span></a></li>
 										<li class=" perform_day day-20"><a href="dag.html?day=20"><span>Zaterdag</span><span>20 juli</span></a></li>
@@ -116,10 +116,14 @@
 	<div class="main l-width--second ">
 		<div class="main__first">
 		<section class="main__events" >
-			<article class="artist__list">
-			</article>
+			<!-- <article class="artist__list"> -->
+				<ul class="card artist__list">
+
+				</ul>
+			<!-- </article> -->
 		</section>
 		<section class="  main__news" >
+		
 			<a href="#">
 				<article class="main__news--first">
 					<div class="news__img__date">
@@ -180,7 +184,10 @@
 		</section>
 	</div>
 	<section class="static__slider">
-		<img src="static/media/mid__section.jpg" alt="">
+		<!-- <img src="static/media/mid__section.jpg" alt=""> -->
+		<div class="fake-padding">
+
+		</div>
 		<div class="main__slider--date">
 			<span class=" main__slider--arrow arrow__left"><svg width="16" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M8.683 0L6.785 1.885l4.118 4.118H0v2.661h10.903l-4.118 4.117 1.898 1.886L16 7.333z" fill="#000" fill-rule="nonzero"/></svg></span><span class="main__slider--arrow arrow__right"><svg width="16" height="15" xmlns="http://www.w3.org/2000/svg"><path d="M8.683 0L6.785 1.885l4.118 4.118H0v2.661h10.903l-4.118 4.117 1.898 1.886L16 7.333z" fill="#000" fill-rule="nonzero"/></svg></span><p> 7/7</p>
 		</div>
@@ -205,7 +212,10 @@
 			</div>
 		</article>
 	</section>
-	<section>
+</div>
+</main>
+<footer>
+	<section class="footer__newsletter">
 		<article class=" newsletter l-width">
 			<div class="newsletter__info">
 				<h2>Blijf op de hoogte</h2>
@@ -213,19 +223,19 @@
 				<p>De stad Gent zal de persoonsgegevens die u invult met respect voor uw <span>privacy</span> behandelen.</p>
 			</div>
 			<div class="newsletter__form">
-				<label for="email">E-mailadres</label>
-				<span class="newsletter__btn">
-					<input id="email" type="text" placeholder="">
-					<button type="submit">
-						Inschrijven
-					</button>
-				</span>
+				<form action="">
+					<label for="email">E-mailadres</label>
+					<span class="newsletter__btn">
+						<input id="email" type="text" placeholder="">
+						<button type="submit">
+							Inschrijven
+						</button>
+					</span>
+				</form>
 			</div>
 		</article>
 	</section>
-</div>
-</main>
-<footer>
+	<section>
 	<article class="footer__top">	
 		<div class=" l-width invisible__margin">
 			<div class="logo logo__bottom">
@@ -235,7 +245,7 @@
 
 				<h3>Volg de Gentse Feesten op alle sociale media kanalen</h3>
 				<div class="footer__icons">
-					<a href="#">	<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.37 7.277c.014.21.014.419.014.628 0 6.391-4.864 13.755-13.755 13.755-2.739 0-5.283-.793-7.424-2.17.39.045.764.06 1.168.06 2.26 0 4.34-.763 6.002-2.066a4.843 4.843 0 01-4.52-3.352c.299.045.598.074.913.074.434 0 .868-.06 1.272-.164a4.835 4.835 0 01-3.877-4.745v-.06c.644.36 1.392.584 2.185.614a4.831 4.831 0 01-2.155-4.026c0-.898.24-1.721.659-2.44a13.742 13.742 0 009.968 5.059 5.46 5.46 0 01-.12-1.108 4.832 4.832 0 014.835-4.834c1.392 0 2.649.584 3.532 1.527a9.518 9.518 0 003.068-1.168 4.821 4.821 0 01-2.125 2.664 9.692 9.692 0 002.784-.748 10.391 10.391 0 01-2.425 2.5z"/></svg></a>
+					<a href="#"><svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.37 7.277c.014.21.014.419.014.628 0 6.391-4.864 13.755-13.755 13.755-2.739 0-5.283-.793-7.424-2.17.39.045.764.06 1.168.06 2.26 0 4.34-.763 6.002-2.066a4.843 4.843 0 01-4.52-3.352c.299.045.598.074.913.074.434 0 .868-.06 1.272-.164a4.835 4.835 0 01-3.877-4.745v-.06c.644.36 1.392.584 2.185.614a4.831 4.831 0 01-2.155-4.026c0-.898.24-1.721.659-2.44a13.742 13.742 0 009.968 5.059 5.46 5.46 0 01-.12-1.108 4.832 4.832 0 014.835-4.834c1.392 0 2.649.584 3.532 1.527a9.518 9.518 0 003.068-1.168 4.821 4.821 0 01-2.125 2.664 9.692 9.692 0 002.784-.748 10.391 10.391 0 01-2.425 2.5z"/></svg></a>
 					<a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.072 13.474l.655-4.269h-4.096v-2.77c0-1.168.572-2.306 2.407-2.306H17.9V.494S16.21.206 14.594.206c-3.373 0-5.578 2.044-5.578 5.746v3.253h-3.75v4.27h3.75v10.32h4.615v-10.32h3.441z"/></svg></a>
 					<a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill-rule="evenodd"><rect x="5.7" y="9" width="6" height="6" rx="3"/><rect x="13.3" y="9" width="6" height="6" rx="3"/></g></svg></a>
 					<a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.818 6.46a2.86 2.86 0 00-1.996-2.04c-1.76-.482-8.817-.482-8.817-.482s-7.058 0-8.818.482a2.86 2.86 0 00-1.995 2.04C.72 8.26.72 12.017.72 12.017s0 3.756.472 5.556a2.816 2.816 0 001.995 2.008c1.76.482 8.818.482 8.818.482s7.057 0 8.817-.482a2.816 2.816 0 001.996-2.008c.471-1.8.471-5.556.471-5.556s0-3.755-.471-5.555zM9.696 15.427v-6.82l5.9 3.41-5.9 3.41z"/></svg></a>	
@@ -256,9 +266,12 @@
 			</div>
 		</div>
 	</article>
+</section>
 </footer>
 </div>
 	<!-- <script src="static/js/fetch.js"></script> -->
+	<script src="static/js/details.js"></script>
 	<script src="static/js/main.js"></script>
+	<script src="static/js/program.js"></script>
 </body>
 </html>
